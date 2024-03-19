@@ -3,7 +3,11 @@ function binary(num) {
   return '0b' + str.padStart(32, '0').replace(/(.{4})(?!$)/g, '$1_');
 }
 
-binary(0b0010 << 1)
+function parseBinary(str) {
+  return parseInt(str.replace(/^0b|_/g, ''), 2) >> 0;
+}
+
+console.log(parseBinary(binary(0b0010 << 1)))
 
 const number = {
   1: 13,
