@@ -9,6 +9,14 @@ function parseBinary(str) {
 
 console.log(parseBinary(binary(0b0010 << 1)))
 
+function circularLeftShift(num, shift) {
+  return num << shift | num >>> (32 - shift);
+}
+
+function circularRightShift(num, shift) {
+  return num >>> shift | num << (32 - shift);
+}
+
 const number = {
   1: 13,
   2: 56,
