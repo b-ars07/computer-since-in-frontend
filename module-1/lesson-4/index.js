@@ -1,3 +1,9 @@
+function binary(num) {
+  return num.toString(2).padStart(32, '0');
+}
+
+binary(0b0010 << 1)
+
 const number = {
   1: 13,
   2: 56,
