@@ -1,5 +1,6 @@
 function binary(num) {
-  return num.toString(2).padStart(32, '0');
+  const str = new Uint32Array([num])[0].toString(2);
+  return '0b' + str.padStart(32, '0').replace(/(.{4})(?!$)/g, '$1_');
 }
 
 binary(0b0010 << 1)
