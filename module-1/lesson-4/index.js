@@ -17,6 +17,20 @@ function circularRightShift(num, shift) {
   return num >>> shift | num << (32 - shift);
 }
 
+function getDoubleStr2(num) {
+  const data = new DataView(new ArrayBuffer(8));
+  data.setFloat64(0, num, false);
+
+  let bits = '';
+
+  for (let i = 0; i < 8; i++) {
+    const byte = data.getUint8(i).toString(2).padStart(8, '0');
+    bits += byte;
+  }
+
+  return '0b' + bits.replace(/(.{4})(?!$)/g, '$1_');
+}
+
 const number = {
   1: 13,
   2: 56,
